@@ -1,0 +1,25 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import "../styles/landing.built.css"
+
+
+const { frontmatter } = Astro.props;
+---
+
+<html lang="en" class="js no-touch progressive-image no-reduced-motion progressive">
+  <head>
+    <BaseHead title={frontmatter.title} description={frontmatter.description} image={frontmatter.image.square} />
+  </head>
+  <body class="page-article">
+    <Header />
+    <main id="main" class="main">
+      <section>
+        <article class="article">
+          <div class="article-header"></div>
+          <slot />
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

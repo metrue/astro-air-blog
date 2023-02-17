@@ -1,15 +1,92 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Tile from "../layouts/Tile.astro";
+import MoreTile from "../layouts/MoreTile.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+  <section class="everydayfeed">
+    <div class="section-content">
+      <h2 class="section-head">最新文章</h2>
+      <ul role="list" class="section-tiles">
+        <Tile
+          title="iPad 助力中国餐饮零售行业焕发新生"
+          href="/about"
+          date="2022-09-01"
+          tags={["测试"]}
+          cover="https://www.apple.com.cn/newsroom/cn/images/product/ipad/lifestyle/Apple_iPad-is-transforming-retail-and-food-service-in-China_Staff-serving-customers-with-FLIPOS-on-iPad_01282023_Full-Bleed-Image.jpg.large_2x.jpg"
+          level="1"
+        />
+        <Tile
+          title="iPad 助力中国餐饮零售行业焕发新生"
+          href="/about"
+          date="2022-09-01"
+          tags={["测试"]}
+          cover="https://www.apple.com.cn/newsroom/cn/images/product/ipad/lifestyle/Apple_iPad-is-transforming-retail-and-food-service-in-China_Staff-serving-customers-with-FLIPOS-on-iPad_01282023_Full-Bleed-Image.jpg.large_2x.jpg"
+          level="2"
+        />
+        <Tile
+          title="iPad 助力中国餐饮零售行业焕发新生"
+          href="/about"
+          date="2022-09-01"
+          tags={["测试"]}
+          cover="https://www.apple.com.cn/newsroom/cn/images/product/ipad/lifestyle/Apple_iPad-is-transforming-retail-and-food-service-in-China_Staff-serving-customers-with-FLIPOS-on-iPad_01282023_Full-Bleed-Image.jpg.large_2x.jpg"
+          level="2"
+        />
+      </ul>
+    </div>
+  </section>
+
+  <section
+    class="more-from-newsroom"
+    data-analytics-section-engagement="name:more-from-newsroom"
+    data-anim-scroll-group="more-from-newsroom"
+    data-component-list="TileScrollAnimation"
+  >
+    <div class="section-content">
+      <h2 class="section-head">更多文章</h2>
+      <ul role="list" class="section-tiles">
+        <MoreTile
+        title="iPad 助力中国餐饮零售行业焕发新生"
+        href="/about"
+        date="2022-09-01"
+        tags={["测试"]}
+        cover="https://www.apple.com.cn/newsroom/cn/images/product/ipad/lifestyle/Apple_iPad-is-transforming-retail-and-food-service-in-China_Staff-serving-customers-with-FLIPOS-on-iPad_01282023_Full-Bleed-Image.jpg.large_2x.jpg"
+        level="2"
+        />
+        <MoreTile
+        title="iPad 助力中国餐饮零售行业焕发新生"
+        href="/about"
+        date="2022-09-01"
+        tags={["测试"]}
+        cover="https://www.apple.com.cn/newsroom/cn/images/product/ipad/lifestyle/Apple_iPad-is-transforming-retail-and-food-service-in-China_Staff-serving-customers-with-FLIPOS-on-iPad_01282023_Full-Bleed-Image.jpg.large_2x.jpg"
+        level="2"
+        />
+
+        <MoreTile
+        title="iPad 助力中国餐饮零售行业焕发新生"
+        href="/about"
+        date="2022-09-01"
+        tags={["测试"]}
+        cover="https://www.apple.com.cn/newsroom/cn/images/product/ipad/lifestyle/Apple_iPad-is-transforming-retail-and-food-service-in-China_Staff-serving-customers-with-FLIPOS-on-iPad_01282023_Full-Bleed-Image.jpg.large_2x.jpg"
+        level="2"
+        />
+        <MoreTile
+        title="iPad 助力中国餐饮零售行业焕发新生"
+        href="/about"
+        date="2022-09-01"
+        tags={["测试"]}
+        cover="https://www.apple.com.cn/newsroom/cn/images/product/ipad/lifestyle/Apple_iPad-is-transforming-retail-and-food-service-in-China_Staff-serving-customers-with-FLIPOS-on-iPad_01282023_Full-Bleed-Image.jpg.large_2x.jpg"
+        level="2"
+        />
+      </ul>
+      <div class="view-archive-wrapper">
+        <a href="/newsroom/archive/" class="cta-primary-light" data-analytics-region="router" data-analytics-title="view archive">阅读历史文章</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    import "../scripts/lazyload.js";
+  </script>
+</BaseLayout>

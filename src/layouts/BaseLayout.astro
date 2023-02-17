@@ -1,0 +1,16 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import "../styles/global.css";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+---
+
+<html lang="en" class="js no-touch  progressive-image  no-reduced-motion progressive ">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="page-landing">
+    <Header />
+    <slot />
+  </body>
+</html>
