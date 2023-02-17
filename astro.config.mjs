@@ -1,14 +1,12 @@
 import { defineConfig } from 'astro/config';
 import { visit } from 'unist-util-visit'
 import addClasses from 'rehype-add-classes';
-import { select } from 'hast-util-select';
-import rehypeWrap from 'rehype-wrap';
 
 
 
 function pip() {
   return [
-    // step 1: rebuild the image tag
+
     () => (tree) => {
       visit(tree, 'element', (node) => {
         if (node.tagName === 'p' && node.children[0].tagName === 'img') {
@@ -67,11 +65,6 @@ function pip() {
                           value: img.properties.alt
                         }
                       ]
-                    },
-                    {
-                      type: 'element',
-                      tagName: 'a',
-                      properties: { className: ['icon-arrowdown icon nr-cta-download'], href: img.properties.src, download: true },
                     }
                   ]
                 }
@@ -82,170 +75,62 @@ function pip() {
       })
     },
 
+
     () => (tree) => {
       tree.children.forEach((node) => {
         if (node.type === "raw") {
-          node.value = `<precode class="pagebody text component"><div class="component-content"> ${node.value} </div></precode>`
+          node.value = `<div class="pagebody text component"><div class="component-content code"> ${node.value} </div></div>`
           // node.value = node.value.replace(/astro-code/g, 'astro-code')
         }
       });
     },
 
+
     () => (tree) => {
-      tree.children.push(
-        {
-          type: 'element',
-          
-        }
-      )
-    }
-  ]
-}
+      for(let i=0;i<tree.children.length;i++) {
+        let node = tree.children[i];
+        if(node.type === "element" && ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(node.tagName)) {
+    
+          let next = tree.children[i + 1];
+          let nodes = [node];
+          while (next && !['figure'].includes(next.tagName) && next.type !="raw") {
+  
+            nodes.push(next);
+            next = tree.children[tree.children.indexOf(next) + 1];
+          }
 
-
-function pipeline() {
-
-  return [
-    // step 1: rename the tag which named p and don't have an image tag to pp.
-    () => (tree) => {
-      visit(tree, 'element', (node) => {
-        if (node.tagName === 'p' && node.children[0].tagName != 'img') {
-          node.tagName = 'pp'
-        }
-      })
-    },
-
-    // step 2: add class to pp tag
-    [addClasses, { 'pp': 'pagebody-copy' }],
-
-
-    // step 3: add div tag to pp tag
-    () => (tree) => {
-      let pNodes = [];
-      tree.children.forEach((node) => {
-        if (node.tagName === 'pp') {
-          pNodes.push(node);
-        } else {
-          if (pNodes.length) {
-            tree.children.splice(tree.children.indexOf(node), 0, {
-              type: 'element',
-              properties: { className: ['pagebody text component'] },
-              tagName: 'div',
-              children: [{ type: 'element', tagName: 'div', properties: { className: ['component-content'] }, children: pNodes, }],
+          if (nodes.length > 1) {
+            // rename label
+            nodes.forEach((node) => {
+              if(node.tagName === "p") {
+                node.properties.className = ['pagebody-copy'];
+                node.tagName = "div";
+              }
+              if(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(node.tagName)) {
+                node.properties.className = ['pagebody-header'];
+              }
             });
-            pNodes = [];
+
+            tree.children.splice(i, nodes.length, {
+              type: 'element',
+              tagName: 'div',
+              properties: { className: ['pagebody  text component'] },
+              children: [
+                {
+                  type: 'element',
+                  tagName: 'div',
+                  properties: { className: ['component-content'] },
+                  children: nodes
+                }
+              ]
+            });
           }
         }
-      });
-
-      if (pNodes.length) {
-        tree.children.push({
-          type: 'element',
-          properties: { className: ['pagebody text component'] },
-          tagName: 'div',
-          children: [{ type: 'element', tagName: 'div', properties: { className: ['component-content'] }, children: pNodes, }],
-        });
       }
-    },
-
-    // step 4: remove pp tag
-    () => (tree) => {
-      // tree.children = tree.children.filter((node) => node.tagName !== 'pp');
-    },
-
-    // step 5: rename pp tag to p tag
-    () => (tree) => {
-      visit(tree, 'element', (node) => {
-        if (node.tagName === 'pp') {
-          node.tagName = 'p'
-        }
-      })
-    },
-
-    // step 6: rebuild the image tag
-    () => (tree) => {
-      visit(tree, 'element', (node) => {
-        if (node.tagName === 'p' && node.children[0].tagName === 'img') {
-          node.tagName = 'figure';
-          node.properties.className = ['image component image-big image-fullbleed body-copy-wide nr-scroll-animation nr-scroll-animation--on'];
-          let img = node.children[0];
-
-          node.children = [
-            {
-              type: 'element',
-              tagName: 'div',
-              properties: { className: ['component-content'] },
-              children: [
-                {
-                  type: 'element',
-                  tagName: 'div',
-                  properties: { className: ['image-sharesheet'] },
-                  children: [
-                    {
-                      type: 'element',
-                      tagName: 'div',
-                      properties: { className: ['image image-asset'] },
-                      children: [
-                        {
-                          type: 'element',
-                          tagName: 'picture',
-                          properties: { className: ['picture'] },
-                          children: [
-                            {
-                              type: 'element',
-                              tagName: 'img',
-                              properties: {
-                                src: img.properties.src,
-                                alt: img.properties.alt,
-                                className: ['picture-image'],
-                              }
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  type: 'element',
-                  tagName: 'div',
-                  properties: { className: ['image-description'] },
-                  children: [
-                    {
-                      type: 'element',
-                      tagName: 'div',
-                      properties: { className: ['image-caption'] },
-                      children: [
-                        {
-                          type: 'text',
-                          value: img.properties.alt
-                        }
-                      ]
-                    },
-                    {
-                      type: 'element',
-                      tagName: 'a',
-                      properties: { className: ['icon-arrowdown icon nr-cta-download'], href: img.properties.src, download: true },
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-
-        }
-      })
-    },
-    () => (tree) => {
-      tree.children.forEach((node) => {
-        if (node.type === "raw") {
-          node.value = `<div class="pagebody text component"><div class="component-content"> ${node.value} </div></div>`
-          // node.value = node.value.replace(/astro-code/g, 'astro-code')
-        }
-      });
     }
   ]
 }
+
 
 
 // https://astro.build/config

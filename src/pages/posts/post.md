@@ -1,4 +1,5 @@
 ---
+layout: '../../layouts/MarkdownPost.astro'
 title: '[源码研究] Golang 标准库 net/http 和 HTTP 服务 (Serve) '
 pubDate: 2022-06-25
 description: '很多Go web框架都通过封装 net/http 来实现核心功能，因此学习 net/http 是研究 Gin等框架的基础。'
@@ -13,7 +14,7 @@ tags: ["源码研究", "标准库", "golang", "gin"]
 ## Go HTTP Server的大致处理流程
 
 
-服务器在收到请求时，首先进入路由(Router)，接着路由会根据 request 请求的路径，找到对应的处理器(Handler)，处理器再根据 request 进行处理并构造 response 进行返回。
+服务器在收到请求时，首先进入路由 `Router`，接着路由会根据 request 请求的路径，找到对应的处理器(Handler)，处理器再根据 request 进行处理并构造 response 进行返回。
 
 ## 利用标准库实现一个简单HTTP Server
 
