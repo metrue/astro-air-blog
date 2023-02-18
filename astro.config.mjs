@@ -27,7 +27,7 @@ function pip() {
                     {
                       type: 'element',
                       tagName: 'div',
-                      properties: { className: [`image-asset image-${sign}`], id: sign },
+                      properties: { className: [`image-asset image-${sign}`], id: `lht${sign}` },
                       children: [
                         {
                           type: 'element',

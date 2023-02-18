@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       };`;
  
-      let target = document.querySelector(`#${sign}`);
+      let target = document.querySelector(`#lht${sign}`);
       target.parentNode.insertBefore(style, target);
     }
   });

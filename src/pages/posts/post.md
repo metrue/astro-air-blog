@@ -9,14 +9,14 @@ image:
     square: 'https://lookcos.cn/usr/uploads/2022/04/2067928922.png'
     alt: 'cover'
 tags: ["源码研究", "标准库", "golang", "gin"]
-theme: 'dark'
+theme: 'light'
 ---
 
-## Go HTTP Server的大致处理流程
+![Go HTTP Server的大致处理流程](https://lookcos.cn/usr/uploads/2023/02/2838864430.png)
 
 服务器在收到请求时，首先进入路由 Router，接着路由会根据 request 请求的路径，找到对应的处理器(Handler)，处理器再根据 request 进行处理并构造 response 进行返回。
 
-![这是一个 Golang 语言的吉祥物。](https://lookcos.cn/usr/uploads/2022/04/2067928922.png)
+
 
 ## 利用标准库实现一个简单HTTP Server
 

@@ -4,22 +4,44 @@ import Header from "../components/Header.astro";
 const { frontmatter } = Astro.props;
 ---
 
-<html lang="en" class="js no-touch progressive-image no-reduced-motion progressive">
+<html lang="zh-CN" dir="ltr" class="js no-touch progressive-image no-reduced-motion progressive">
   <head>
     <BaseHead title={frontmatter.title} description={frontmatter.description} image={frontmatter.image.square} />
   </head>
-  <body class:list={["page-article", {"theme-dark": frontmatter.theme==="dark"}]}>
+  <body class:list={["page-article", { "theme-dark": frontmatter.theme === "dark" }]}>
     <Header />
     <main id="main" class="main">
       <section>
         <article class="article">
-          <div class="article-header"></div>
+          <div class="featured-header">
+
+            <div class="category component">
+              <div class="component-content">
+                <div class="category-eyebrow">
+                  <span class="category-eyebrow__category category_original">特写</span>
+
+                  <span class="category-eyebrow__date">2022 年 4 月 21 日</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pagetitle component">
+              <div class="component-content">
+                <h1 class="hero-headline">从农场到海洋：保育红树林，维系当地人生计，保护地球</h1>
+              </div>
+            </div>
+
+            <div class="featured-subhead component">
+              <div class="component-content">Apple 与 Applied Environmental Research Foundation 合作，将促进印度马哈拉施特拉邦红树林的保育工作</div>
+            </div>
+
+          </div>
           <slot />
         </article>
       </section>
     </main>
+    <script>
+      import "../scripts/loadimage.js";
+    </script>
   </body>
-  <script>
-    import '../scripts/loadimage.js'
-  </script>
 </html>
