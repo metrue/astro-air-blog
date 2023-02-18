@@ -41,6 +41,10 @@ document.addEventListener('DOMContentLoaded', function () {
  
       let target = document.querySelector(`#lht${sign}`);
       target.parentNode.insertBefore(style, target);
+
+      let grandParent = image.parentNode.parentNode;
+      grandParent.classList.remove("image-load");
+      grandParent.classList.add("image-loaded")
     }
   });
 

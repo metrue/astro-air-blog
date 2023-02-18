@@ -1,6 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
@@ -12,5 +13,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   <body class="page-landing">
     <Header />
     <slot />
+    <Footer />
   </body>
 </html>

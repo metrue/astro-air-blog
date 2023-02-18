@@ -10,9 +10,20 @@ function pip() {
       visit(tree, 'element', (node, index) => {
         if (node.tagName === 'p' && node.children[0].tagName === 'img') {
           node.tagName = 'figure';
-          node.properties.className = ['image component image-big image-fullbleed body-copy-wide nr-scroll-animation nr-scroll-animation--on'];
+          
           let img = node.children[0];
           let sign = md5(img.properties.src);
+          let data = img.properties.alt.split("|");
+          let alt = data[0];
+          let size = "big";
+          if (data.length > 1) {
+            size = data[1];
+          }
+
+          let classes = ['image component image-fullbleed body-copy-wide nr-scroll-animation nr-scroll-animation--on'];
+          classes.push(`image-${size}`);
+
+          node.properties.className = classes;
           node.children = [
             {
               type: 'element',
@@ -27,7 +38,7 @@ function pip() {
                     {
                       type: 'element',
                       tagName: 'div',
-                      properties: { className: [`image-asset image-${sign}`], id: `lht${sign}` },
+                      properties: { className: [`image image-load image-asset image-${sign}`], id: `lht${sign}` },
                       children: [
                         {
                           type: 'element',
@@ -39,7 +50,7 @@ function pip() {
                               tagName: 'img',
                               properties: {
                                 'data-src': img.properties.src,
-                                alt: img.properties.alt,
+                                alt: alt,
                                 className: ['picture-image'],
                               }
                             }
@@ -61,7 +72,7 @@ function pip() {
                       children: [
                         {
                           type: 'text',
-                          value: img.properties.alt
+                          value: alt
                         }
                       ]
                     }

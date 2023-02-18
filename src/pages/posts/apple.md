@@ -1,8 +1,8 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[源码研究] Golang 标准库 net/http 和 HTTP 服务 (Serve) '
+title: '从农场到海洋：保育红树林，维系当地人生计，保护地球 '
 pubDate: 2022-06-25
-description: '很多Go web框架都通过封装 net/http 来实现核心功能，因此学习 net/http 是研究 Gin等框架的基础。'
+description: 'Apple 与 Applied Environmental Research Foundation 合作，将促进印度马哈拉施特拉邦红树林的保育工作'
 author: 'Austin'
 image:
     url: 'https://lookcos.cn/usr/uploads/2022/04/2067928922.png'
@@ -10,9 +10,10 @@ image:
     alt: 'cover'
 tags: ["特写", "标准库", "golang", "gin"]
 theme: 'dark'
+featured: true
 ---
 
-![在印度马哈拉施特拉邦，Apple 与 Applied Environmental Research Foundation 展开合作，对红树林进行保护与培育。这一海岸森林生态系统可以吸收和存储大气中的二氧化碳。](https://www.apple.com.cn/newsroom/images/values/environment/Apple-Earth-Day-India-mangrove-Alibaug-canoe_Full-Bleed-Image.jpg.large_2x.jpg)
+![在印度马哈拉施特拉邦，Apple 与 Applied Environmental Research Foundation 展开合作，对红树林进行保护与培育。这一海岸森林生态系统可以吸收和存储大气中的二氧化碳。|wide](https://www.apple.com.cn/newsroom/images/values/environment/Apple-Earth-Day-India-mangrove-Alibaug-canoe_Full-Bleed-Image.jpg.large_2x.jpg)
 
 在马哈拉施特拉邦繁华的滨海城市孟买以南仅约 96 公里的地方，出现了一个截然不同的世界。繁华都市的摩天大厦、餐厅、酒店、购物区、不计其数的“嘟嘟车”与现代汽车逐渐消失，未铺装的道路、棕榈树、山羊、拉车的牛、小型露天市场和路边餐馆出现在视野里。
 
@@ -31,3 +32,11 @@ AERF 还将从保护国际基金会（Conservation International）2018 年启�
 AERF 主席 Archana Godbole 从小就热爱大自然。“植物代表了年龄与时间，”她表示，“而树木则代表了耐心。它们是时间的无声观众——我越是研究树木、了解树木，就越在它们面前感到渺小。我的经历让我逐渐意识到，我想为保护和拯救树木与森林而工作。”
 
 ![Applied Environmental Research Foundation 主席 Archana Godbole 是一位植物分类学家，她在过去三十年间一直致力于以社区为基础的环保工作。](https://www.apple.com.cn/newsroom/images/values/environment/Apple-Earth-Day-India-mangrove-Archana-Godbole_big.jpg.large_2x.jpg)
+
+
+专业植物分类学家 Godbole 在过去三十年间一直致力于以社区为基础的环保工作。在 Raigad 县，AERF 正在寻求与当地社区达成环保协议。由于海水侵袭和人造堤坝的损毁，当地居民的作物与农田的损失惨重。
+
+“这里世代居住的人们本是农民，但突然之间海洋来到了他们的门口。”Godbole 说道，“人们学会了新的技巧，来应对新的局面。现在我们已经知道红树林在应对气候变化与碳封存方面作用非常重要。我们很高兴能来到这里，努力与当地居民合作，让红树林为他们带来更多福祉。我们满怀信心地期待，他们能够在心中建立与土地和红树林的深厚联系。”
+
+下面，我们可以看到这些村庄的面貌，以及被很多人称之为家的社区面对日益严峻的环境灾害所表现出的适应能力。
+
