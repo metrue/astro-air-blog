@@ -9,12 +9,14 @@ image:
     square: 'https://lookcos.cn/usr/uploads/2022/04/2067928922.png'
     alt: 'cover'
 tags: ["源码研究", "标准库", "golang", "gin"]
+theme: 'dark'
 ---
 
 ## Go HTTP Server的大致处理流程
 
+服务器在收到请求时，首先进入路由 Router，接着路由会根据 request 请求的路径，找到对应的处理器(Handler)，处理器再根据 request 进行处理并构造 response 进行返回。
 
-服务器在收到请求时，首先进入路由 `Router`，接着路由会根据 request 请求的路径，找到对应的处理器(Handler)，处理器再根据 request 进行处理并构造 response 进行返回。
+![这是一个 Golang 语言的吉祥物。](https://lookcos.cn/usr/uploads/2022/04/2067928922.png)
 
 ## 利用标准库实现一个简单HTTP Server
 
@@ -443,7 +445,10 @@ func (sh serverHandler) ServeHTTP(rw ResponseWriter, req *Request) {
 ### 总结
 
 Go net/http 标准库，能让我们轻易地写出一个高性能的 HTTP Server，但肯定不能满足实际业务开发，比如动态路由、中间件、鉴权等这是标准库所不具有的。  
+
 很多重复性的工作和常用的工具与特性要由框架来封装和实现，go 很多高性能框架 比如 Gin 都是直接封装了 net/http，这一点难能可贵，由此可见 Go 标准库的价值。  
+
 所以学习优秀 Go web 框架的前提就是弄清楚 net/http Server 部分的源码，同时，也能方便更好的去使用和优化框架。  
 本文所使用的源码均来自 go 1.18.3，部分方法说明翻译自官方注释。  
+
 如有不当之处，请批评指出。

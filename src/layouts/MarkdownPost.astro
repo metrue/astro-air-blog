@@ -1,9 +1,6 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
-import "../styles/landing.built.css"
-
-
 const { frontmatter } = Astro.props;
 ---
 
@@ -11,7 +8,7 @@ const { frontmatter } = Astro.props;
   <head>
     <BaseHead title={frontmatter.title} description={frontmatter.description} image={frontmatter.image.square} />
   </head>
-  <body class="page-article">
+  <body class:list={["page-article", {"theme-dark": frontmatter.theme==="dark"}]}>
     <Header />
     <main id="main" class="main">
       <section>
@@ -22,4 +19,7 @@ const { frontmatter } = Astro.props;
       </section>
     </main>
   </body>
+  <script>
+    import '../scripts/loadimage.js'
+  </script>
 </html>

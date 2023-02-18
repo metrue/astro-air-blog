@@ -6,7 +6,6 @@ export function formatDate(dateString) {
   return year + " 年 " + month + " 月 " + day + " 日";
 }
 
-
 // debounce function
 export function debounce(fn, delay) {
   let timer = null;

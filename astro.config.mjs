@@ -1,19 +1,18 @@
 import { defineConfig } from 'astro/config';
 import { visit } from 'unist-util-visit'
-import addClasses from 'rehype-add-classes';
-
+import md5 from 'md5';
 
 
 function pip() {
   return [
 
     () => (tree) => {
-      visit(tree, 'element', (node) => {
+      visit(tree, 'element', (node, index) => {
         if (node.tagName === 'p' && node.children[0].tagName === 'img') {
           node.tagName = 'figure';
           node.properties.className = ['image component image-big image-fullbleed body-copy-wide nr-scroll-animation nr-scroll-animation--on'];
           let img = node.children[0];
-
+          let sign = md5(img.properties.src);
           node.children = [
             {
               type: 'element',
@@ -28,7 +27,7 @@ function pip() {
                     {
                       type: 'element',
                       tagName: 'div',
-                      properties: { className: ['image image-asset'] },
+                      properties: { className: [`image-asset image-${sign}`], id: sign },
                       children: [
                         {
                           type: 'element',
@@ -39,7 +38,7 @@ function pip() {
                               type: 'element',
                               tagName: 'img',
                               properties: {
-                                src: img.properties.src,
+                                'data-src': img.properties.src,
                                 alt: img.properties.alt,
                                 className: ['picture-image'],
                               }
@@ -75,11 +74,10 @@ function pip() {
       })
     },
 
-
     () => (tree) => {
       tree.children.forEach((node) => {
         if (node.type === "raw") {
-          node.value = `<div class="pagebody text component"><div class="component-content code"> ${node.value} </div></div>`
+          node.value = `<div class="pagebody code component"><div class="component-content code"> ${node.value} </div></div>`
           // node.value = node.value.replace(/astro-code/g, 'astro-code')
         }
       });
@@ -87,14 +85,14 @@ function pip() {
 
 
     () => (tree) => {
-      for(let i=0;i<tree.children.length;i++) {
+      for (let i = 0; i < tree.children.length; i++) {
         let node = tree.children[i];
-        if(node.type === "element" && ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(node.tagName)) {
-    
+        if (node.type === "element" && ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(node.tagName)) {
+
           let next = tree.children[i + 1];
           let nodes = [node];
-          while (next && !['figure'].includes(next.tagName) && next.type !="raw") {
-  
+          while (next && !['figure'].includes(next.tagName) && next.type != "raw") {
+
             nodes.push(next);
             next = tree.children[tree.children.indexOf(next) + 1];
           }
@@ -102,11 +100,11 @@ function pip() {
           if (nodes.length > 1) {
             // rename label
             nodes.forEach((node) => {
-              if(node.tagName === "p") {
+              if (node.tagName === "p") {
                 node.properties.className = ['pagebody-copy'];
                 node.tagName = "div";
               }
-              if(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(node.tagName)) {
+              if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(node.tagName)) {
                 node.properties.className = ['pagebody-header'];
               }
             });
@@ -124,7 +122,27 @@ function pip() {
                 }
               ]
             });
+
           }
+        }
+      }
+    },
+    () => (tree) => {
+      let len = tree.children.length;
+      for (let index = 0; index < len; index++) {
+        let node = tree.children[index];
+        if (node.type === "element" && node.tagName === "figure") {
+          tree.children.splice(index, 0, {
+            type: 'element',
+            tagName: 'div',
+            properties: { className: ['tertiarynav component'] },
+            children: [{
+              type: 'element',
+              tagName: 'div',
+              properties: { className: ['component-content'] },
+            }]
+          })
+          index++;
         }
       }
     }
