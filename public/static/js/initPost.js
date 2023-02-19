@@ -1,18 +1,16 @@
 
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("postInit.js loaded");
-  var scriptMd5 = document.createElement("script");
-  scriptMd5.src = "/static/js/md5.js";
-  document.head.appendChild(scriptMd5);
+console.log("postInit.js loaded");
+var scriptMd5 = document.createElement("script");
+scriptMd5.src = "/static/js/md5.js";
+document.head.appendChild(scriptMd5);
 
-  scriptMd5.onload = function () {
-    console.log("md5.js loaded")
-    // step1. sythx highlighting
-    syntaxHighlight();
-    // step2. lazyload
-    initLazyLoad();
-  }
-});
+scriptMd5.onload = function () {
+  console.log("md5.js loaded")
+  // step1. sythx highlighting
+  syntaxHighlight();
+  // step2. lazyload
+  initLazyLoad();
+}
 
 function initLazyLoad() {
   var script = document.createElement("script");
