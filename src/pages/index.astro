@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Tile from "../layouts/Tile.astro";
 import MoreTile from "../layouts/MoreTile.astro";
+const allPosts = await Astro.glob("../pages/posts/*.md");
 ---
 
 <BaseLayout>
@@ -37,44 +38,42 @@ import MoreTile from "../layouts/MoreTile.astro";
     </div>
   </section>
 
-  <section
-    class="more-from-newsroom"
-  >
+  <section class="more-from-newsroom">
     <div class="section-content">
       <h2 class="section-head">更多文章</h2>
       <ul role="list" class="section-tiles">
         <MoreTile
-        title="iPad 助力中国餐饮零售行业焕发新生"
-        href="/about"
-        date="2022-09-01"
-        tags={["测试"]}
-        cover="https://www.apple.com.cn/newsroom/cn/images/product/ipad/lifestyle/Apple_iPad-is-transforming-retail-and-food-service-in-China_Staff-serving-customers-with-FLIPOS-on-iPad_01282023_Full-Bleed-Image.jpg.large_2x.jpg"
-        level="2"
+          title="iPad 助力中国餐饮零售行业焕发新生"
+          href="/about"
+          date="2022-09-01"
+          tags={["测试"]}
+          cover="https://www.apple.com.cn/newsroom/cn/images/product/ipad/lifestyle/Apple_iPad-is-transforming-retail-and-food-service-in-China_Staff-serving-customers-with-FLIPOS-on-iPad_01282023_Full-Bleed-Image.jpg.large_2x.jpg"
+          level="2"
         />
         <MoreTile
-        title="iPad 助力中国餐饮零售行业焕发新生"
-        href="/about"
-        date="2022-09-01"
-        tags={["测试"]}
-        cover="https://www.apple.com.cn/newsroom/cn/images/product/ipad/lifestyle/Apple_iPad-is-transforming-retail-and-food-service-in-China_Staff-serving-customers-with-FLIPOS-on-iPad_01282023_Full-Bleed-Image.jpg.large_2x.jpg"
-        level="2"
+          title="iPad 助力中国餐饮零售行业焕发新生"
+          href="/about"
+          date="2022-09-01"
+          tags={["测试"]}
+          cover="https://www.apple.com.cn/newsroom/cn/images/product/ipad/lifestyle/Apple_iPad-is-transforming-retail-and-food-service-in-China_Staff-serving-customers-with-FLIPOS-on-iPad_01282023_Full-Bleed-Image.jpg.large_2x.jpg"
+          level="2"
         />
 
         <MoreTile
-        title="iPad 助力中国餐饮零售行业焕发新生"
-        href="/about"
-        date="2022-09-01"
-        tags={["测试"]}
-        cover="https://www.apple.com.cn/newsroom/cn/images/product/ipad/lifestyle/Apple_iPad-is-transforming-retail-and-food-service-in-China_Staff-serving-customers-with-FLIPOS-on-iPad_01282023_Full-Bleed-Image.jpg.large_2x.jpg"
-        level="2"
+          title="iPad 助力中国餐饮零售行业焕发新生"
+          href="/about"
+          date="2022-09-01"
+          tags={["测试"]}
+          cover="https://www.apple.com.cn/newsroom/cn/images/product/ipad/lifestyle/Apple_iPad-is-transforming-retail-and-food-service-in-China_Staff-serving-customers-with-FLIPOS-on-iPad_01282023_Full-Bleed-Image.jpg.large_2x.jpg"
+          level="2"
         />
         <MoreTile
-        title="iPad 助力中国餐饮零售行业焕发新生"
-        href="/about"
-        date="2022-09-01"
-        tags={["测试"]}
-        cover="https://www.apple.com.cn/newsroom/cn/images/product/ipad/lifestyle/Apple_iPad-is-transforming-retail-and-food-service-in-China_Staff-serving-customers-with-FLIPOS-on-iPad_01282023_Full-Bleed-Image.jpg.large_2x.jpg"
-        level="2"
+          title="iPad 助力中国餐饮零售行业焕发新生"
+          href="/about"
+          date="2022-09-01"
+          tags={["测试"]}
+          cover="https://www.apple.com.cn/newsroom/cn/images/product/ipad/lifestyle/Apple_iPad-is-transforming-retail-and-food-service-in-China_Staff-serving-customers-with-FLIPOS-on-iPad_01282023_Full-Bleed-Image.jpg.large_2x.jpg"
+          level="2"
         />
       </ul>
       <div class="view-archive-wrapper">
@@ -83,7 +82,17 @@ import MoreTile from "../layouts/MoreTile.astro";
     </div>
   </section>
 
-  <script>
-    import "../scripts/lazyload.js";
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", function () {
+      var script = document.createElement("script");
+      script.src = "/static/js/lazyload.js";
+      document.head.appendChild(script);
+      
+      script.onload = function () {
+        console.log("lazyload.js loaded");
+        // when layout is loaded, load the images
+        initImage();
+      };
+    });
   </script>
 </BaseLayout>
