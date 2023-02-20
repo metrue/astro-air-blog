@@ -67,7 +67,7 @@ allPosts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontma
   <script is:inline>
     document.addEventListener("DOMContentLoaded", function () {
       var script = document.createElement("script");
-      script.src = "/static/js/lazyload.js";
+      script.src = "/static/js/animation.js";
       document.head.appendChild(script);
 
       script.onload = function () {

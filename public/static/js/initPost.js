@@ -14,31 +14,46 @@ scriptMd5.onload = function () {
 
 function initLazyLoad() {
   var script = document.createElement("script");
-  script.src = "/static/js/lazyload.js";
+  script.src = "/static/js/animation.js";
   document.head.appendChild(script);
 
   script.onload = function () {
     console.log("lazyload.js loaded");
 
+    animationElementName = ".image-load";
+
     // Hook the loadImage function
-    loadImage = (image) => {
-      let sign = md5(image.dataset.src);
+    loadImage = (index) => {
+      if (index >= imageElements.length) return;
+      
+      let image = imageElements[index];
       image.src = image.dataset.src;
-      image.removeAttribute("data-src");
-    
       let img = new Image();
       img.src = image.src;
+      img.onload = function () {
+        image.removeAttribute("data-src");
+        loadImage(index + 1);
+      };
+    }
+
+    loadAnimation = (item) => {
+      let grandSon = item.firstChild.firstChild;
+      let img = new Image();
+      img.src = grandSon.src;
+      let sign = md5(grandSon.src);
+
       img.onload = function () {
         let percent = ((img.height / img.width) * 100).toFixed(5);
         var style = document.createElement("style");
         style.innerHTML = renderStyle(sign, percent);
-        let target = document.querySelector(`#lht${sign}`);
+        let target = document.getElementById(`lht${sign}`)
+
         if (!target) return;
         target.parentNode.insertBefore(style, target);
-        let grandParent = image.parentNode.parentNode;
-        grandParent.classList.remove("image-load");
-        grandParent.classList.add("image-loaded");
-      };
+        item.classList.remove("image-load");
+        item.classList.add("image-loaded");
+      }
+
     }
 
     initImage();
