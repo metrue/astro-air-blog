@@ -14,12 +14,52 @@ npm create astro@latest -- --template minimal
 Inside of your Astro project, you'll see the following folders and files:
 
 ```
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+.
+|-- README.md
+|-- astro.config.mjs
+|-- package-lock.json
+|-- package.json
+|-- public
+|   |-- favicon.svg
+|   `-- static
+|       |-- css
+|       |   |-- github-dark.min.css
+|       |   |-- github.min.css
+|       |   |-- googlecode.min.css
+|       |   |-- stackoverflow-dark.min.css
+|       |   |-- stackoverflow-light.min.css
+|       |   `-- vs2015.min.css
+|       `-- js
+|           |-- animation.js
+|           |-- hljs.js
+|           |-- initPost.js
+|           `-- md5.js
+|-- src
+|   |-- components
+|   |   |-- BaseHead.astro
+|   |   |-- Footer.astro
+|   |   |-- Header.astro
+|   |   `-- Navigation.astro
+|   |-- consts.js
+|   |-- env.d.ts
+|   |-- layouts
+|   |   |-- BaseLayout.astro
+|   |   |-- MarkdownPost.astro
+|   |   |-- MoreTile.astro
+|   |   `-- Tile.astro
+|   |-- pages
+|   |   |-- about.astro
+|   |   |-- archive.astro
+|   |   |-- index.astro
+|   |   |-- posts
+|   |   |   |-- some markdown post.md
+|   |   |-- rss.xml.js
+|   |   `-- tags
+|   |       `-- [tag].astro
+|   |-- styles
+|   |   `-- global.css
+|   `-- utils.js
+`-- tsconfig.json
 ```
 
 Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.

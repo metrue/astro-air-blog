@@ -2,8 +2,10 @@ import { defineConfig } from 'astro/config';
 import { visit } from 'unist-util-visit'
 import md5 from 'md5';
 
+import { SITE_URL } from './src/consts';
 
-function pip() {
+
+function pipeline() {
   return [
 
     () => (tree) => {
@@ -164,8 +166,9 @@ function pip() {
 
 // https://astro.build/config
 export default defineConfig({
+  site: SITE_URL,
   markdown: {
-    rehypePlugins: pip(),
+    rehypePlugins: pipeline(),
     syntaxHighlight: 'prism',
   },
 });
