@@ -1,4 +1,4 @@
-## Introduction
+## 👏🏻 Introduction
 
 This is a minimalist, beautiful, responsive blogging program written in Astro.
 
