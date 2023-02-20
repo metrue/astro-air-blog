@@ -1,42 +1,21 @@
-# Astro Starter Kit: Minimal
+## Introduction
 
-```
-npm create astro@latest -- --template minimal
-```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This is a minimalist, beautiful, responsive blogging program written in Astro.
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
+In this Astro project, you'll see the following folders and files:
 
 ```
-.
 |-- README.md
 |-- astro.config.mjs
-|-- package-lock.json
 |-- package.json
 |-- public
 |   |-- favicon.svg
 |   `-- static
-|       |-- css
-|       |   |-- github-dark.min.css
-|       |   |-- github.min.css
-|       |   |-- googlecode.min.css
-|       |   |-- stackoverflow-dark.min.css
-|       |   |-- stackoverflow-light.min.css
-|       |   `-- vs2015.min.css
-|       `-- js
-|           |-- animation.js
-|           |-- hljs.js
-|           |-- initPost.js
-|           `-- md5.js
 |-- src
 |   |-- components
-|   |   |-- BaseHead.astro
+|   |   |-- BaseHead.astro // common <head> tags
 |   |   |-- Footer.astro
 |   |   |-- Header.astro
 |   |   `-- Navigation.astro
@@ -51,15 +30,14 @@ Inside of your Astro project, you'll see the following folders and files:
 |   |   |-- about.astro
 |   |   |-- archive.astro
 |   |   |-- index.astro
-|   |   |-- posts
-|   |   |   |-- some markdown post.md
-|   |   |-- rss.xml.js
+|   |   |-- posts 
+|   |   |   |-- some markdown post.md  // 这里写文章
+|   |   |-- rss.xml.js // RSS feed
 |   |   `-- tags
-|   |       `-- [tag].astro
+|   |       `-- [tag].astro // dynamic route of all posts with a given tag
 |   |-- styles
-|   |   `-- global.css
+|   |   `-- global.css // global styles
 |   `-- utils.js
-`-- tsconfig.json
 ```
 
 Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
