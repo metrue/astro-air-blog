@@ -8,7 +8,7 @@ cover:
     url: 'https://www.apple.com.cn/newsroom/images/values/environment/Apple-Earth-Day-India-mangrove-Alibaug-canoe_Full-Bleed-Image.jpg.large_2x.jpg'
     square: 'https://www.apple.com.cn/newsroom/images/values/environment/Apple-Earth-Day-India-mangrove-Alibaug-canoe_Full-Bleed-Image.jpg.large_2x.jpg'
     alt: 'cover'
-tags: ["特写", "环保", "Apple", "印度", "红树林", "保育"]
+tags: ["特写", "环保", "Apple", "印度", "红树林", "保育", "新闻稿"]
 theme: 'dark'
 featured: true
 ---

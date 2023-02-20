@@ -8,7 +8,7 @@ cover:
     url: 'https://www.apple.com.cn/newsroom/images/apple-logo_black.jpg.landing-regular_2x.jpg'
     square: 'https://www.apple.com.cn/newsroom/images/apple-logo_black.jpg.landing-regular_2x.jpg'
     alt: 'cover'
-tags: ["Apple", "财报"]
+tags: ["新闻稿", "Apple", "财报"]
 theme: 'light'
 featured: false
 ---
