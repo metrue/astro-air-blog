@@ -31,7 +31,6 @@ function initLazyLoad() {
       let img = new Image();
       img.src = image.src;
       img.onload = function () {
-        image.removeAttribute("data-src");
         loadImage(index + 1);
       };
     }

@@ -5,8 +5,12 @@ var animationElementName = ".small-load";
 
 // Hookable function
 var loadAnimation = function (item) {
-  item.classList.remove("small-load", "medium-load", "large-load");
-  item.classList.add("small-loaded", "medium-loaded", "large-loaded");
+  let img = new Image();
+  img.src = item.children[0].children[0].dataset.src;
+  img.onload = function () {
+    item.classList.remove("small-load", "medium-load", "large-load");
+    item.classList.add("small-loaded", "medium-loaded", "large-loaded");
+  }
 }
 
 // Hookable function
@@ -17,7 +21,6 @@ var loadImage = function (index) {
   item.src = item.dataset.src;
   image.src = item.src;
   image.onload = function () {
-    item.removeAttribute("data-src");
     loadImage(index + 1);
   }
 }
