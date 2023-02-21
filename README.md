@@ -2,6 +2,38 @@
 
 This is a minimalist, beautiful, responsive blogging program written in Astro.
 
+## Preview
+
+### Home
+
+![首页](https://cos.lookcos.cn/blog/static/images/preview/preview_index.png)
+
+### Dark mode
+
+![文章黑暗模式](https://cos.lookcos.cn/blog/static/images/preview/preview_dark.png)
+
+### Normal article
+
+![普通文章模式](https://cos.lookcos.cn/blog/static/images/preview/preview_light.png)
+
+### Syntax highlighting
+
+![Syntax](https://cos.lookcos.cn/blog/static/images/preview/preview_syntaxHighlighting.png)
+
+### Three display model of images
+
+![](https://cos.lookcos.cn/blog/static/images/preview/preview_different_mode.png)
+
+The three display modes of images are: `wide`, `big`, `inline`.
+When you edit your markdown file, you can add `wide` or `big` or `inline` to the image alt, like this:
+
+```markdown
+![alt content|wide](a.png)
+```
+
+<strong>The Separator is `|`, and the default mode is `big`.</strong>
+
+
 ## 🚀 Project Structure
 
 In this Astro project, you'll see the following folders and files:
