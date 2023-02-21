@@ -4,6 +4,8 @@ This is a minimalist, beautiful, responsive blogging program written in Astro.
 
 ## Preview
 
+[https://astro-blog.qum.cc/](https://astro-blog.qum.cc/)
+
 ### Home
 
 ![首页](https://cos.lookcos.cn/blog/static/images/preview/preview_index.png)
@@ -32,7 +34,6 @@ When you edit your markdown file, you can add `wide` or `big` or `inline` to the
 ```
 
 <strong>The Separator is `|`, and the default mode is `big`.</strong>
-
 
 ## 🚀 Project Structure
 
