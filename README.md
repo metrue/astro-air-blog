@@ -10,7 +10,7 @@ This is a minimalist, beautiful, responsive blogging program written in Astro.
 
 ### Dark mode
 
-![文章黑暗模式](https://cos.lookcos.cn/blog/static/images/preview/preview_dark.png)
+![文章黑暗模式](https://cos.lookcos.cn/blog/static/images/preview/preview_dark.png?)
 
 ### Normal article
 
