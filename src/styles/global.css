@@ -7322,6 +7322,7 @@ span.tag-date {
   .tag-header {
     font-size: 21px;
   }
+
   a.tag_post-content {
     font-size: 14px;
   }
@@ -7331,11 +7332,16 @@ span.tag-date {
   .tag-header {
     font-size: 18px;
   }
+
   .tag-post-list li {
     margin: 0px 0em;
-  }  
+  }
 }
 
-ul > li {
+ul>li {
   margin: 1em 0px;
+}
+
+code {
+  margin: 0px 0.25em;
 }
