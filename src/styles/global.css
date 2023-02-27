@@ -7335,3 +7335,7 @@ span.tag-date {
     margin: 0px 0em;
   }  
 }
+
+ul > li {
+  margin: 1em 0px;
+}
