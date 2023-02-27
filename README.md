@@ -8,23 +8,23 @@ This is a minimalist, beautiful, responsive blogging program written in Astro.
 
 ### Home
 
-![首页](https://cos.lookcos.cn/blog/static/images/preview/preview_index.png)
+![首页](./public/preview/preview_index.png)
 
 ### Dark mode
 
-![文章黑暗模式](https://cos.lookcos.cn/blog/static/images/preview/preview_dark.png?)
+![文章黑暗模式](./public/preview/preview_dark.png?)
 
 ### Normal article
 
-![普通文章模式](https://cos.lookcos.cn/blog/static/images/preview/preview_light.png)
+![普通文章模式](./public/preview/preview_light.png)
 
 ### Syntax highlighting
 
-![Syntax](https://cos.lookcos.cn/blog/static/images/preview/preview_syntaxHighlighting.png)
+![Syntax](./public/preview/preview_syntaxHighlighting.png)
 
 ### Three display model of images
 
-![](https://cos.lookcos.cn/blog/static/images/preview/preview_different_mode.png)
+![](./public/preview/preview_different_mode.png)
 
 The three display modes of images are: `wide`, `big`, `inline`.
 When you edit your markdown file, you can add `wide` or `big` or `inline` to the image alt, like this:
