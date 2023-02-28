@@ -1,3 +1,6 @@
+
+[中文版本说明](./README_CN.md)
+
 ## 👏🏻 Introduction
 
 This is a minimalist, beautiful, responsive blogging program written in Astro.
@@ -64,7 +67,7 @@ In this Astro project, you'll see the following folders and files:
 |   |   |-- archive.astro
 |   |   |-- index.astro
 |   |   |-- posts 
-|   |   |   |-- some markdown post.md  // 这里写文章
+|   |   |   |-- some markdown post.md // markdown post 
 |   |   |-- rss.xml.js // RSS feed
 |   |   `-- tags
 |   |       `-- [tag].astro // dynamic route of all posts with a given tag
