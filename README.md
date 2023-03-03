@@ -7,7 +7,8 @@ This is a minimalist, beautiful, responsive blogging program written in Astro.
 
 ## Preview
 
-[https://astro-blog.qum.cc/](https://astro-blog.qum.cc/)
+[https://yufengbiji.com](https://yufengbiji.com)
+[https://astro.yufengbiji.com](https://astro.yufengbiji.com)
 
 ### Home
 

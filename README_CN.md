@@ -2,9 +2,14 @@
 
 它是我基于 Astro 2.0 开发的一个博客模板，你可以直接使用它来搭建你的博客。我没有使用任何 CSS 框架以及 React 等前端框架，而是使用了 Astro 自带的组件库，这样可以让你的博客加载速度更快，同时也可以让你的博客更加轻量。
 
+## 教程
+
+[https://yufengbiji.com/posts/astro-air-blog-guide][https://yufengbiji.com/posts/astro-air-blog-guide]
+
 ## 预览
 
-[https://astro-blog.qum.cc/](https://astro-blog.qum.cc/)
+[https://yufengbiji.com](https://yufengbiji.com)
+[https://astro.yufengbiji.com](https://astro.yufengbiji.com)
 
 ### 主页
 
@@ -71,7 +76,6 @@
 |   |   `-- global.css // 全局样式
 |   `-- utils.js
 ```
-
 
 ## 🧞 使用方法
 
