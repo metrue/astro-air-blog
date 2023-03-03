@@ -1,11 +1,11 @@
 
-console.log("postInit.js loaded");
+// console.log("postInit.js loaded");
 var scriptMd5 = document.createElement("script");
 scriptMd5.src = "/static/js/md5.js";
 document.head.appendChild(scriptMd5);
 
 scriptMd5.onload = function () {
-  console.log("md5.js loaded")
+  // console.log("md5.js loaded")
   // step1. sythx highlighting
   syntaxHighlight();
   // step2. lazyload
@@ -18,7 +18,7 @@ function initLazyLoad() {
   document.head.appendChild(script);
 
   script.onload = function () {
-    console.log("lazyload.js loaded");
+    // console.log("lazyload.js loaded");
 
     animationElementName = ".image-load";
 
@@ -87,16 +87,16 @@ function renderStyle(sign, percent) {
 
 function syntaxHighlight() {
   var script = document.createElement("script");
-  script.src = "/static/js/hljs.js";
+  script.src = "//cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js";
   document.head.appendChild(script);
 
   var styleLight = document.createElement("link");
   styleLight.rel = "stylesheet";
-  styleLight.href = "/static/css/stackoverflow-light.min.css";
+  styleLight.href = "//cdn.staticfile.org/highlight.js/11.7.0/styles/stackoverflow-light.min.css";
 
   var styleDark = document.createElement("link");
   styleDark.rel = "stylesheet";
-  styleDark.href = "/static/css/stackoverflow-dark.min.css";
+  styleDark.href = "//cdn.staticfile.org/highlight.js/11.7.0/styles/stackoverflow-dark.min.css";
 
   if (document.querySelector("body").classList.contains("theme-dark")) {
     document.head.appendChild(styleDark);
@@ -105,9 +105,13 @@ function syntaxHighlight() {
   }
 
   script.onload = function () {
-    console.log("hljs.js loaded");
-    document.querySelectorAll("pre code").forEach(function (block) {
-      hljs.highlightBlock(block);
+    // console.log("hljs.js loaded");
+    // 忽略未转义的HTML警告，自己的md文档默认可信
+    hljs.configure({
+      ignoreUnescapedHTML: true
+    });
+    document.querySelectorAll('pre code').forEach((el) => {
+      hljs.highlightElement(el);
     });
   };
 }
