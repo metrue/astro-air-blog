@@ -4,7 +4,7 @@
 
 ## 教程
 
-[https://yufengbiji.com/posts/astro-air-blog-guide][https://yufengbiji.com/posts/astro-air-blog-guide]
+[https://yufengbiji.com/posts/astro-air-blog-guide](https://yufengbiji.com/posts/astro-air-blog-guide)
 
 ## 预览
 
