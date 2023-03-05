@@ -25,14 +25,19 @@ function initLazyLoad() {
     // Hook the loadImage function
     loadImage = (index) => {
       if (index >= imageElements.length) return;
-      
+
       let image = imageElements[index];
       image.src = image.dataset.src;
       let img = new Image();
       img.src = image.src;
+
+      // if the image is loaded or not loaded, load the next image
       img.onload = function () {
         loadImage(index + 1);
       };
+      img.onerror = function () {
+        loadImage(index + 1);
+      }
     }
 
     loadAnimation = (item) => {
