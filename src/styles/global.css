@@ -303,6 +303,12 @@ a:disabled,
   position: sticky;
 }
 
+header{
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
 .nav {
   position: relative;
   top: 0;
@@ -312,7 +318,21 @@ a:disabled,
   min-width: 1024px;
   z-index: 9997;
   height: 3.05882rem;
-  border-bottom: 1px solid var(--footer-background);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
+.nav::after{
+  position: absolute;
+  content: " ";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255,255,255,0.7);
+}
+
+.theme-dark .nav::after {
+  background: rgba(29,29,31,0.7);
 }
 
 .nav-title {
