@@ -7367,22 +7367,25 @@ code {
 }
 
 blockquote {
-  background: #f9f9f9;
-  border-left: 10px solid #ccc;
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
-  max-width: 625px;
-  margin: auto;
+  background: #fafafa;
+  border-left: 0.3em solid #ccc;
+  padding: 0.5em 0.5em;
+  border-radius: 4px;
+  margin-bottom: 1.4211em;
+  color: #6e6e73;
+  font-size: 16px;
 }
 
-blockquote:before {
-  color: #ccc;
-  content: open-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
+.theme-dark blockquote {
+  background: #1d1d1f;
+  border-left: 0.3em solid #ccc;
+  color: #6e6e73;
+}
+
+.theme-dark blockquote {
+  background: #1d1d1f;
+  border-left: 0.39em solid #8c7f7f;
+  color: #9999a5;
 }
 
 blockquote p {
