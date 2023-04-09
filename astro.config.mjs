@@ -6,6 +6,7 @@ import sitemap from '@astrojs/sitemap';
 import { SITE_URL } from './src/consts';
 
 
+// Rebuild HTML tree.
 function pipeline() {
   return [
 
