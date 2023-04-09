@@ -11,6 +11,14 @@ cover:
 tags: ["新闻稿", "Apple", "HomePod"] 
 theme: 'light'
 featured: true
+
+meta:
+ - name: author
+   content: 作者是我
+ - name: keywords
+   content: key3, key4
+
+keywords: key1, key2, key3
 ---
 
 ![HomePod 汇集了多项 Apple 创新技术、Siri 智能和智能家居功能，为用户带来前所未有的聆听体验。](https://www.apple.com.cn/newsroom/images/product/homepod/standard/Apple-HomePod-hero-230118_big.jpg.large_2x.jpg)

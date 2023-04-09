@@ -4,16 +4,16 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
 import { formatDate } from "../utils";
-import { SITE_TITLE } from "../consts";
+import { SITE_LANG} from "../consts";
 const { frontmatter } = Astro.props;
 const type = frontmatter.tags[0];
 const { pubDate, title, description, featured } = frontmatter;
 const dateFormated = formatDate(pubDate);
 ---
 
-<html lang="zh-CN" dir="ltr" class="js no-touch progressive-image no-reduced-motion progressive">
+<html lang={SITE_LANG} dir="ltr" class="js no-touch progressive-image no-reduced-motion progressive">
   <head>
-    <BaseHead title={`${title} - ${SITE_TITLE}`} description={description} image={frontmatter.cover.square} />
+    <BaseHead frontmatter={frontmatter}/>
   </head>
   <body class:list={["page-article", { "theme-dark": frontmatter.theme === "dark" }]}>
     <Header />
